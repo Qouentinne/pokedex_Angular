@@ -1,0 +1,9 @@
+<section class="nes-container with-title">
+    <h2 class="title">Pokédex</h2>
+    <div class="pkmn-list-wrapper wrapper">
+        <app-pkmn-card
+            *ngFor="let pkmnCard of pkmnCardList"
+            [pkmnCard]="pkmnCard"
+        ></app-pkmn-card>
+    </div>
+</section>

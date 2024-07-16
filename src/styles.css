@@ -1,1 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: Kong;
+    src: url(../public/kongtext.ttf) format('truetype');
+}
+
+* {
+    font-family: 'Kong', 'Lucida Sans Unicode';
+}

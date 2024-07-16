@@ -1,0 +1,12 @@
+<div class="pokemon-card">
+    <a [routerLink]="['/pokemon', pkmnCard.id]">
+        <img
+            class="pokemon-card-img"
+            [src]="pkmnCard.img_url"
+            alt="{{ pkmnCard.name }}"
+        />
+        <p class="pkmn-card-title">
+            {{pkmnCard.name}}
+        </p>
+    </a>
+</div>

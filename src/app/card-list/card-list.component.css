@@ -1,0 +1,8 @@
+.pkmn-list-wrapper {
+    display: grid;
+    column-gap: 14px;
+    row-gap: 14px;
+    grid-template-columns: repeat(3, 20px);
+    margin-top: 50px;
+    justify-content: space-around;
+}
