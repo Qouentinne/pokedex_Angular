@@ -1,51 +1,58 @@
 <div *ngIf="pokemonDetails">
-    <h2>{{ pokemonDetails.name }} (ID: {{ pokemonDetails.id }})</h2>
-    
-    <div>
-      <h3>Types</h3>
-      <ul>
-        <li *ngFor="let type of pokemonDetails.types">{{ type }}</li>
-      </ul>
+    <h1 class="page-title">{{ pokemonDetails.name }} (ID: {{ pokemonDetails.id }})</h1>
+
+    <div class="body-wrapper">
+        <div class="body-left">
+
+            <div class="stats-wrapper">
+                <h3>Stats</h3>
+                <ul>
+                    <li>PV: {{ pokemonDetails.stats['Statistique de base'].PV }}</li>
+                    <li>Attaque: {{ pokemonDetails.stats['Statistique de base'].Attaque }}</li>
+                    <li>Défense: {{ pokemonDetails.stats['Statistique de base']['Défense'] }}</li>
+                    <li>Attaque Spéciale: {{ pokemonDetails.stats['Statistique de base']['Attaque Spéciale'] }}</li>
+                    <li>Défense Spéciale: {{ pokemonDetails.stats['Statistique de base']['Défense Spéciale'] }}</li>
+                    <li>Vitesse: {{ pokemonDetails.stats['Statistique de base'].Vitesse }}</li>
+                    <li>Somme des statistiques de base: {{ pokemonDetails.stats['Statistique de base']['Somme des statistiques de base'] }}</li>
+                    <li>Moyenne des statistiques de base: {{ pokemonDetails.stats['Statistique de base']['Moyenne des statistiques de base'] }}</li>
+                </ul>
+            </div>
+            <div class="moves-wrapper">
+                <h3>Moves</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Catégorie</th>
+                            <th>Puissance</th>
+                            <th>Précision</th>
+                            <th>PP</th>
+                            <th>LGPE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let move of pokemonDetails.moves">
+                            <td>{{ move.Type }}</td>
+                            <td>{{ move['Catégorie'] }}</td>
+                            <td>{{ move.Puissance }}</td>
+                            <td>{{ move['Précision'] }}</td>
+                            <td>{{ move.PP }}</td>
+                            <td>{{ move.LGPE }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="body-right">
+            <div class="img-container">
+                <img [src]="imgURL" [alt]="pokemonDetails.name">
+            </div>
+            <div class="type-display-wrapper">
+                
+                    <app-type-display *ngFor="let type of pokemonDetails.types" [type]="type"></app-type-display>
+                
+            </div>
+
+        </div>
     </div>
-  
-    <div>
-      <h3>Stats</h3>
-      <ul>
-        <li>PV: {{ pokemonDetails.stats['Statistique de base'].PV }}</li>
-        <li>Attaque: {{ pokemonDetails.stats['Statistique de base'].Attaque }}</li>
-        <li>Défense: {{ pokemonDetails.stats['Statistique de base']['Défense'] }}</li>
-        <li>Attaque Spéciale: {{ pokemonDetails.stats['Statistique de base']['Attaque Spéciale'] }}</li>
-        <li>Défense Spéciale: {{ pokemonDetails.stats['Statistique de base']['Défense Spéciale'] }}</li>
-        <li>Vitesse: {{ pokemonDetails.stats['Statistique de base'].Vitesse }}</li>
-        <li>Somme des statistiques de base: {{ pokemonDetails.stats['Statistique de base']['Somme des statistiques de base'] }}</li>
-        <li>Moyenne des statistiques de base: {{ pokemonDetails.stats['Statistique de base']['Moyenne des statistiques de base'] }}</li>
-      </ul>
-    </div>
-  
-    <div>
-      <h3>Moves</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Catégorie</th>
-            <th>Puissance</th>
-            <th>Précision</th>
-            <th>PP</th>
-            <th>LGPE</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let move of pokemonDetails.moves">
-            <td>{{ move.Type }}</td>
-            <td>{{ move['Catégorie'] }}</td>
-            <td>{{ move.Puissance }}</td>
-            <td>{{ move['Précision'] }}</td>
-            <td>{{ move.PP }}</td>
-            <td>{{ move.LGPE }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  
+</div>
